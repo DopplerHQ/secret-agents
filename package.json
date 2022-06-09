@@ -1,0 +1,29 @@
+{
+  "name": "agent",
+  "private": true,
+  "workspaces": [
+    "agent-core",
+    "rotators/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "lint": "eslint .",
+    "prettier": "prettier . --check"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.5.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.2"
+  }
+}

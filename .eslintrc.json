@@ -1,0 +1,59 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "ignorePatterns": ["*/dist"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:node/recommended",
+    "plugin:security/recommended",
+    "plugin:import/errors"
+  ],
+  "plugins": ["security", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "curly": ["error"],
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "import/extensions": ["error", "never", { "json": "always" }],
+    "import/first": "error",
+    "import/no-duplicates": "error",
+    "import/no-useless-path-segments": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+      }
+    ],
+    "no-constant-condition": "off",
+    "no-template-curly-in-string": "error",
+    "no-var": "error",
+    "no-nested-ternary": "error",
+    "node/no-missing-import": "off",
+    "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["dynamicImport", "modules"] }],
+    "object-shorthand": ["error", "never"],
+    "one-var": ["error", "never"],
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "security/detect-object-injection": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": true }],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  },
+  "settings": {
+    "import/external-module-folders": ["node_modules"],
+    "import/resolver": {
+      "typescript": {}
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"]
+    }
+  }
+}
