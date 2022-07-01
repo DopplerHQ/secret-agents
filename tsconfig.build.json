@@ -2,8 +2,13 @@
   "files": [],
   "references": [
     { "path": "agent-core" },
+
+    { "path": "utils/aws" },
+
     { "path": "rotators/postgres" },
+    { "path": "rotators/mysql" },
+
     { "path": "apps/http-postgres-rotator" },
-    { "path": "utils/aws" }
+    { "path": "apps/aws-mysql-rotator" }
   ]
 }
