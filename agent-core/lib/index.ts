@@ -1,8 +1,8 @@
 import https from "https";
 import * as jose from "jose";
 import { z } from "zod";
-import { AgentError, jsonifyError } from "./utils";
-import { RequestSchema, Request, Response, RequestHandler } from "./models";
+import { AgentError, jsonifyError } from "./utils.js";
+import { RequestSchema, Request, Response, RequestHandler } from "./models.js";
 
 export { AgentError, Request, Response, RequestHandler };
 
