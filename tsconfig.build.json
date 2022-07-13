@@ -1,4 +1,9 @@
 {
   "files": [],
-  "references": [{ "path": "agent-core" }, { "path": "rotators/postgres" }, { "path": "apps/http-postgres-rotator" }]
+  "references": [
+    { "path": "agent-core" },
+    { "path": "rotators/postgres" },
+    { "path": "apps/http-postgres-rotator" },
+    { "path": "utils/aws" }
+  ]
 }
