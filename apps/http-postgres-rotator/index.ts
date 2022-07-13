@@ -7,7 +7,9 @@ app.use(express.text());
 app.use(express.text({ limit: "50kb" }));
 
 app.post("/", async (req, res) => {
-  const response = await processRequest(req.body, postgresHandler, { overrideKeySetURL: process.env.OVERRIDE_KEY_SET_URL });
+  const response = await processRequest(req.body, postgresHandler, {
+    overrideKeySet: process.env.OVERRIDE_KEY_SET_URL ? { type: "remote", url: process.env.OVERRIDE_KEY_SET_URL } : undefined,
+  });
   res.send(response);
 });
 
