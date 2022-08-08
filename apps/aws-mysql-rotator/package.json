@@ -1,0 +1,25 @@
+{
+  "name": "aws-mysql-rotator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "dist/app.js",
+  "types": "dist/app.d.ts",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "agent-core": "*",
+    "mysql-rotator": "*",
+    "aws-utils": "*"
+  }
+}

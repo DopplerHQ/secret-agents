@@ -32,4 +32,4 @@ COPY --from=build /usr/src/app .
 # Only install production dependencies
 RUN npm install --production
 
-CMD [ "node", "--experimental-specifier-resolution=node", "./apps/http-postgres-rotator/dist/index.js" ]
+CMD [ "node", "./apps/http-postgres-rotator/dist/index.js" ]

@@ -1,0 +1,25 @@
+{
+  "name": "mysql-rotator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "agent-core": "*",
+    "mysql2": "^2.3.3",
+    "zod": "^3.17.3"
+  },
+  "devDependencies": {
+    "@types/mysql": "^2.15.21"
+  }
+}

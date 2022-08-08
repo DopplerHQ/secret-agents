@@ -4,7 +4,8 @@
   "workspaces": [
     "agent-core",
     "rotators/*",
-    "apps/*"
+    "apps/*",
+    "utils/*"
   ],
   "engines": {
     "node": "16.x"

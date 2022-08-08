@@ -1,12 +1,16 @@
 import https from "https";
 import * as jose from "jose";
 import { z } from "zod";
-import { AgentError, jsonifyError } from "./utils";
-import { RequestSchema, Request, Response, RequestHandler } from "./models";
+import { AgentError, jsonifyError } from "./utils.js";
+import { RequestSchema, Request, Response, RequestHandler } from "./models.js";
 
 export { AgentError, Request, Response, RequestHandler };
 
-export type ProcessRequestOptions = { overrideKeySetURL?: string };
+export type JWKSOption = { type: "remote"; url: string } | { type: "local"; keySet: Record<string, unknown> };
+
+export type ProcessRequestOptions = {
+  overrideKeySet?: JWKSOption;
+};
 
 const MAX_ABS_REQUEST_AGE_MS = 30 * 1000; // 30 seconds
 
@@ -20,12 +24,17 @@ async function verifySignature(signature: string, options: ProcessRequestOptions
 
   z.enum(["ES512"]).parse(decodedHeader.alg);
 
-  const keySet = jose.createRemoteJWKSet(
-    new URL(options.overrideKeySetURL ?? "https://keys.doppler.com/secret-agents/jwks.json"),
-    {
+  const keySetOption = options.overrideKeySet ?? { type: "remote", url: "https://keys.doppler.com/secret-agents/jwks.json" };
+
+  let keySet;
+  if (keySetOption.type === "remote") {
+    keySet = jose.createRemoteJWKSet(new URL("https://keys.doppler.com/secret-agents/jwks.json"), {
       agent: new https.Agent({ minVersion: "TLSv1.3" }),
-    }
-  );
+    });
+  } else {
+    keySet = jose.createLocalJWKSet(keySetOption.keySet as unknown as jose.JSONWebKeySet);
+  }
+
   return await jose.compactVerify(signature, keySet);
 }
 
