@@ -35,5 +35,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install ts-node
+      - run: npm install -g ts-node
       - run: ./deployment/deploy.sh
