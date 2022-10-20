@@ -21,5 +21,8 @@
     "agent-core": "*",
     "mysql-rotator": "*",
     "aws-utils": "*"
+  },
+  "secretAgentMeta": {
+    "platform": "aws"
   }
 }

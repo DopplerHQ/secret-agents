@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    branches: ["main", "develop"]
+
+jobs:
+  define_environment:
+    runs-on: ubuntu-latest
+    name: Define Environment
+    steps:
+      - id: define_environment
+        run: |
+          if [ "${{ github.event_name }}" == 'push' ] && [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "push-production"
+            echo "env_name=production" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" == 'push' ] && [ "${{ github.ref }}" = "refs/heads/develop" ]; then
+            echo "push-staging"
+            echo "env_name=staging" >> $GITHUB_OUTPUT
+          else
+            echo "unknown"
+            echo "env_name=unknown" >> $GITHUB_OUTPUT
+          fi
+    outputs:
+      env_name: ${{ steps.define_environment.outputs.env_name }}
+
+  release:
+    runs-on: ubuntu-latest
+    name: Release
+    needs: [define_environment]
+    if: ${{ needs.define_environment.outputs.env_name != 'unknown' }}
+    environment: ${{ needs.define_environment.outputs.env_name }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install ts-node
+      - run: ./deployment/deploy.sh
