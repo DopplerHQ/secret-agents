@@ -37,3 +37,9 @@ jobs:
           node-version: 16
       - run: npm install
       - run: ./deployment/deploy.sh
+        env:
+          AGENT_BUCKETS: ${{ secrets.AGENT_BUCKETS }}
+          SIGNING_BUCKET: ${{ secrets.SIGNING_BUCKET }}
+          SIGNING_PROFILE_NAME: ${{ secrets.SIGNING_PROFILE_NAME }}
+          DEPLOYER_AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
+          DEPLOYER_AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
