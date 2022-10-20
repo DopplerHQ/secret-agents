@@ -10,7 +10,14 @@ async function streamToBuffer(stream: Readable) {
   });
 }
 
-export async function fetchS3KeySet(bucket = "doppler-keys") {
+export async function fetchS3KeySet(bucket?: string) {
+  if (!bucket) {
+    const region = process.env.AWS_REGION;
+    if (!region) {
+      throw new Error("AWS_REGION is required to build bucket name");
+    }
+    bucket = `doppler-keys-${region}`;
+  }
   const s3Client = new S3({ forcePathStyle: true });
   const keyFile = await s3Client.getObject({ Bucket: bucket, Key: "secret-agents/jwks.json" });
   const bodyBuffer = await streamToBuffer(keyFile.Body as Readable);
