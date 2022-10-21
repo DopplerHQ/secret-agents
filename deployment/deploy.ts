@@ -110,6 +110,10 @@ async function awsSpawn(args: string[], options: SpawnOptions = {}) {
       ...options.env,
       AWS_ACCESS_KEY_ID: config.aws.accessKeyId,
       AWS_SECRET_ACCESS_KEY: config.aws.secretAccessKey,
+      // When the AWS CLI is run in GitHub Actions, it makes an IMDS request which requires a region.
+      // Callers are always expected to override this default region with an arg if the call is region-specific.
+      // https://github.com/aws/aws-cli/issues/5234
+      AWS_DEFAULT_REGION: "us-east-1",
       PATH: process.env.PATH,
     },
   });
@@ -283,4 +287,4 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+main();
