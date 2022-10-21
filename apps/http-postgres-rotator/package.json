@@ -21,5 +21,8 @@
     "agent-core": "*",
     "postgres-rotator": "*",
     "express": "^4.18.1"
+  },
+  "secretAgentMeta": {
+    "platform": "gcp"
   }
 }
