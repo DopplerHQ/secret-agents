@@ -8,7 +8,7 @@ on:
 jobs:
   npm_build:
     runs-on: ubuntu-latest
-    name: NPM Build and Lint
+    name: build + lint
     steps:
       - uses: actions/checkout@v2
       - name: npm Build
@@ -22,7 +22,7 @@ jobs:
 
   npm_prettier:
     runs-on: ubuntu-latest
-    name: NPM Prettier
+    name: prettier
     steps:
       - uses: actions/checkout@v2
       - name: npm Build
