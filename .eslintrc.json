@@ -32,6 +32,7 @@
     ],
     "no-constant-condition": "off",
     "no-template-curly-in-string": "error",
+    "no-eval": "error",
     "no-var": "error",
     "no-nested-ternary": "error",
     "node/no-missing-import": "off",
