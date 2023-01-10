@@ -131,8 +131,13 @@ async function awsSpawnJSON<T>(args: string[], options: SpawnOptions = {}) {
   }
 }
 
+function getAgentName(appPackage: AppPackageJSON) {
+  // Remove npm scope
+  return appPackage.name.replace("@dopplerhq/", "");
+}
+
 function formatPackage(appPackage: AppPackageJSON) {
-  return `${appPackage.name} (${appPackage.version}/${appPackage.secretAgentMeta.platform})`;
+  return `${getAgentName(appPackage)} (${appPackage.version}/${appPackage.secretAgentMeta.platform})`;
 }
 
 async function main() {
@@ -161,7 +166,7 @@ async function main() {
 
     // Determine deploy type
     let deployInfo: DeployInfo;
-    const existingAgent = manifest.find((a) => a.name === appPackage.name);
+    const existingAgent = manifest.find((a) => a.name === getAgentName(appPackage));
     if (!existingAgent) {
       deployInfo = { shouldDeploy: true, type: "create", description: "No existing version" };
     } else {
@@ -181,7 +186,7 @@ async function main() {
     console.log(`... ${formatPackage(appPackage)} :: ${deployInfo.description}`);
 
     // Perform app-specific build process
-    const buildDir = await makeTempDir(appPackage.name);
+    const buildDir = await makeTempDir(getAgentName(appPackage));
     const buildOutputPath = `${buildDir}/build.zip`;
     await spawn(`apps/${appDir}/build.sh`, [], {
       env: {
@@ -190,7 +195,7 @@ async function main() {
       },
     });
 
-    const signingBundleName = `${appPackage.name}-${appPackage.version}.zip`;
+    const signingBundleName = `${getAgentName(appPackage)}-${appPackage.version}.zip`;
     const signingSourceKey = `unsigned-${signingBundleName}`;
     const signingPrefix = "signed-";
 
@@ -244,7 +249,7 @@ async function main() {
     await Promise.all(
       config.agentBuckets.map(async (bucket) => {
         const sourcePath = `s3://${config.signingBucket}/${signingResult.signedObject.s3.key}`;
-        const destinationDirPath = `s3://${bucket}/${appPackage.name}`;
+        const destinationDirPath = `s3://${bucket}/${getAgentName(appPackage)}`;
         await Promise.all([
           // Semantic version name for version pinning and explicit version upgrades
           awsSpawn(["s3", "cp", sourcePath, `${destinationDirPath}/${appPackage.version}.zip`]),
@@ -266,7 +271,7 @@ async function main() {
 
     if (deployInfo.type === "create") {
       manifest.push({
-        name: appPackage.name,
+        name: getAgentName(appPackage),
         versions: [newVersion],
       });
     } else {
