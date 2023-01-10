@@ -1,5 +1,5 @@
 {
-  "name": "aws-mysql-rotator",
+  "name": "@dopplerhq/aws-mysql-rotator",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -18,9 +18,9 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "agent-core": "*",
-    "mysql-rotator": "*",
-    "aws-utils": "*"
+    "@dopplerhq/agent-core": "*",
+    "@dopplerhq/mysql-rotator": "*",
+    "@dopplerhq/aws-utils": "*"
   },
   "secretAgentMeta": {
     "platform": "aws"

@@ -1,5 +1,5 @@
 {
-  "name": "aws-utils",
+  "name": "@dopplerhq/aws-utils",
   "version": "1.0.0",
   "type": "module",
   "description": "",
