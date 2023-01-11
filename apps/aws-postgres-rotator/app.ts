@@ -1,6 +1,6 @@
-import { JWKSOption, processRequest } from "agent-core";
-import postgresHandler from "postgres-rotator";
-import { fetchS3KeySet } from "aws-utils";
+import { JWKSOption, processRequest } from "@dopplerhq/agent-core";
+import postgresHandler from "@dopplerhq/postgres-rotator";
+import { fetchS3KeySet } from "@dopplerhq/aws-utils";
 
 export async function handler(event: { body: string }) {
   let keySetOption: JWKSOption;

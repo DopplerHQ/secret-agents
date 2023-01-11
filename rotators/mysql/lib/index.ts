@@ -1,6 +1,6 @@
 import mysql, { QueryError } from "mysql2/promise";
 import { z } from "zod";
-import { Request, Response, AgentError } from "agent-core";
+import { Request, Response, AgentError } from "@dopplerhq/agent-core";
 
 const SSL_SCHEMA = z
   .object({

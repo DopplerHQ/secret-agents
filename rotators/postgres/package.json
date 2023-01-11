@@ -1,5 +1,5 @@
 {
-  "name": "postgres-rotator",
+  "name": "@dopplerhq/postgres-rotator",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -24,6 +24,6 @@
     "pg": "^8.7.3",
     "pg-format": "^1.0.4",
     "zod": "^3.16.0",
-    "agent-core": "*"
+    "@dopplerhq/agent-core": "*"
   }
 }

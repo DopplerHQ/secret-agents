@@ -1,6 +1,6 @@
-import { JWKSOption, processRequest } from "agent-core";
-import mysqlHandler from "mysql-rotator";
-import { fetchS3KeySet } from "aws-utils";
+import { JWKSOption, processRequest } from "@dopplerhq/agent-core";
+import mysqlHandler from "@dopplerhq/mysql-rotator";
+import { fetchS3KeySet } from "@dopplerhq/aws-utils";
 
 export async function handler(event: { body: string }) {
   let keySetOption: JWKSOption;

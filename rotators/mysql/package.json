@@ -1,5 +1,5 @@
 {
-  "name": "mysql-rotator",
+  "name": "@dopplerhq/mysql-rotator",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -15,7 +15,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "agent-core": "*",
+    "@dopplerhq/agent-core": "*",
     "mysql2": "^2.3.3",
     "zod": "^3.17.3"
   },
