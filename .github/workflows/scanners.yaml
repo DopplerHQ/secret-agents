@@ -44,4 +44,4 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - name: npm audit
-        run: npm audit
+        run: npm audit --workspaces --include-workspace-root
