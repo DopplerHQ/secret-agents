@@ -20,7 +20,7 @@
   "dependencies": {
     "@dopplerhq/agent-core": "*",
     "@dopplerhq/postgres-rotator": "*",
-    "express": "^4.18.1"
+    "express": "^4.20.0"
   },
   "secretAgentMeta": {
     "platform": "gcp"
