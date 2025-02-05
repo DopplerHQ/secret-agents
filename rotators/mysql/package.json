@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": "16.x"
+    "node": "20.x"
   },
   "scripts": {
     "build": "tsc",
@@ -16,7 +16,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@dopplerhq/agent-core": "*",
-    "mysql2": "^2.3.3",
+    "mysql2": "^3.12.0",
     "zod": "^3.17.3"
   },
   "devDependencies": {
