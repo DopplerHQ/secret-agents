@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM node:20-alpine as build
 
 WORKDIR /usr/src/app
 
@@ -23,7 +23,7 @@ RUN npm --prefix ./apps/http-postgres-rotator run build
 # Remove node_modules to be reinstalled later
 RUN rm -r node_modules
 
-FROM node:16-alpine
+FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
