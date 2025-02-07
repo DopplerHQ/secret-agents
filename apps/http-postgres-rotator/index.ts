@@ -1,6 +1,6 @@
-import { processRequest } from "agent-core";
+import { processRequest } from "@dopplerhq/agent-core";
 import express from "express";
-import postgresHandler from "postgres-rotator";
+import postgresHandler from "@dopplerhq/postgres-rotator";
 
 const app = express();
 app.use(express.text());

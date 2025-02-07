@@ -1,12 +1,12 @@
 {
-  "name": "postgres-rotator",
-  "version": "1.0.0",
+  "name": "@dopplerhq/postgres-rotator",
+  "version": "1.0.1",
   "type": "module",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": "16.x"
+    "node": "20.x"
   },
   "scripts": {
     "build": "tsc",
@@ -24,6 +24,6 @@
     "pg": "^8.7.3",
     "pg-format": "^1.0.4",
     "zod": "^3.16.0",
-    "agent-core": "*"
+    "@dopplerhq/agent-core": "*"
   }
 }

@@ -1,12 +1,12 @@
 {
-  "name": "aws-utils",
+  "name": "@dopplerhq/aws-utils",
   "version": "1.0.0",
   "type": "module",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": "16.x"
+    "node": "20.x"
   },
   "scripts": {
     "build": "tsc",

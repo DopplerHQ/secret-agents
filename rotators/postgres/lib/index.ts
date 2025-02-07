@@ -1,7 +1,7 @@
 import pg from "pg";
 import pgFormat from "pg-format";
 import { z } from "zod";
-import { Request, Response, AgentError } from "agent-core";
+import { Request, Response, AgentError } from "@dopplerhq/agent-core";
 
 const SSL_SCHEMA = z
   .object({

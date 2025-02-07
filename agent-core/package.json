@@ -1,12 +1,12 @@
 {
-  "name": "agent-core",
-  "version": "1.0.0",
+  "name": "@dopplerhq/agent-core",
+  "version": "1.0.1",
   "type": "module",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": "16.x"
+    "node": "20.x"
   },
   "scripts": {
     "build": "tsc",
@@ -15,7 +15,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "jose": "^4.8.1",
+    "jose": "^4.11.0",
     "zod": "^3.17.3"
   }
 }
