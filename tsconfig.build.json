@@ -7,8 +7,10 @@
 
     { "path": "rotators/postgres" },
     { "path": "rotators/mysql" },
+    { "path": "rotators/mssql" },
 
     { "path": "apps/http-postgres-rotator" },
-    { "path": "apps/aws-mysql-rotator" }
+    { "path": "apps/aws-mysql-rotator" },
+    { "path": "apps/aws-mssql-rotator" }
   ]
 }
