@@ -1,0 +1,28 @@
+{
+  "name": "@dopplerhq/aws-mssql-rotator",
+  "version": "1.0.2",
+  "type": "module",
+  "description": "",
+  "main": "dist/app.js",
+  "types": "dist/app.d.ts",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@dopplerhq/agent-core": "*",
+    "@dopplerhq/mssql-rotator": "*",
+    "@dopplerhq/aws-utils": "*"
+  },
+  "secretAgentMeta": {
+    "platform": "aws"
+  }
+}
