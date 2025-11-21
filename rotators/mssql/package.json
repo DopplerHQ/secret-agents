@@ -1,5 +1,5 @@
 {
-  "name": "@dopplerhq/agent-core",
+  "name": "@dopplerhq/mssql-rotator",
   "version": "1.0.1",
   "type": "module",
   "description": "",
@@ -15,7 +15,13 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "jose": "^4.11.0",
+    "@dopplerhq/agent-core": "*",
+    "mssql": "^11.0.1",
+    "pg-format": "^1.0.4",
     "zod": "^3.17.3"
+  },
+  "devDependencies": {
+    "@types/mssql": "^9.1.7",
+    "@types/pg-format": "^1.0.5"
   }
 }
