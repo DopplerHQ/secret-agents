@@ -6,7 +6,7 @@
   "main": "dist/app.js",
   "types": "dist/app.d.ts",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
     "build": "tsc",
