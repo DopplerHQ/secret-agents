@@ -1,6 +1,6 @@
 {
   "name": "@dopplerhq/http-postgres-rotator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "",
   "main": "dist/index.js",
