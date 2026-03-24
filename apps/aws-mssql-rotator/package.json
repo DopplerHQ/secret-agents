@@ -1,12 +1,12 @@
 {
   "name": "@dopplerhq/aws-mssql-rotator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "",
   "main": "dist/app.js",
   "types": "dist/app.d.ts",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
     "build": "tsc",
