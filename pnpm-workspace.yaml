@@ -1,0 +1,6 @@
+nodeLinker: hoisted
+packages:
+  - agent-core
+  - rotators/*
+  - apps/*
+  - utils/*
