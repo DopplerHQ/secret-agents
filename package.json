@@ -1,12 +1,6 @@
 {
   "name": "agent",
   "private": true,
-  "workspaces": [
-    "agent-core",
-    "rotators/*",
-    "apps/*",
-    "utils/*"
-  ],
   "engines": {
     "node": "24.x"
   },
@@ -28,5 +22,6 @@
     "prettier": "^2.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
-  }
+  },
+  "packageManager": "pnpm@11.22.0"
 }

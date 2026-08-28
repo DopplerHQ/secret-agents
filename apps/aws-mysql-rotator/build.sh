@@ -3,7 +3,7 @@ set -eo pipefail
 
 BUILD_DIR=$(mktemp -d)
 
-cp ./package*.json "$BUILD_DIR"
+cp ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml "$BUILD_DIR"
 cp ./tsconfig* "$BUILD_DIR"
 
 cp -r ./agent-core "$BUILD_DIR/agent-core"
@@ -16,15 +16,15 @@ cp -r ./apps/aws-mysql-rotator "$BUILD_DIR/apps/aws-mysql-rotator"
 
 pushd "$BUILD_DIR"
 
-npm install --workspace apps/aws-mysql-rotator
-npm --prefix ./agent-core run build
-npm --prefix ./rotators/mysql run build
-npm --prefix ./utils/aws run build
-npm --prefix ./apps/aws-mysql-rotator run build
+pnpm install --no-frozen-lockfile
+pnpm --dir ./agent-core run build
+pnpm --dir ./rotators/mysql run build
+pnpm --dir ./utils/aws run build
+pnpm --dir ./apps/aws-mysql-rotator run build
 
-rm -r node_modules
+find . -name node_modules -type d -prune -exec rm -rf {} +
 
-npm clean-install --production
+pnpm install --prod --frozen-lockfile
 
 zip -r "$OUTPUT_ZIP_PATH" .
 

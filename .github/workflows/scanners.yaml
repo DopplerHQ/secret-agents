@@ -8,11 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     name: build + lint
     steps:
-      - uses: actions/checkout@v6
-      - name: npm Build
-        run: npm install
-      - run: set -eo pipefail; npm run build && npm run lint 2>&1| tee ./linter-report.txt
-      - uses: actions/upload-artifact@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - name: pnpm Build
+        run: pnpm install --frozen-lockfile
+      - run: set -eo pipefail; pnpm run build && pnpm run lint 2>&1| tee ./linter-report.txt
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
           name: NPM Linter Report
@@ -22,11 +27,16 @@ jobs:
     runs-on: ubuntu-latest
     name: prettier
     steps:
-      - uses: actions/checkout@v6
-      - name: npm Build
-        run: npm install
-      - run: set -eo pipefail; npm run prettier 2>&1| tee ./prettier-report.txt
-      - uses: actions/upload-artifact@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - name: pnpm Build
+        run: pnpm install --frozen-lockfile
+      - run: set -eo pipefail; pnpm run prettier 2>&1| tee ./prettier-report.txt
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
           name: NPM Prettier Report
@@ -36,10 +46,11 @@ jobs:
     runs-on: ubuntu-latest
     name: npm audit
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "24.x"
           registry-url: "https://registry.npmjs.org"
-      - name: npm audit
-        run: npm audit --workspaces --include-workspace-root
+      - name: pnpm audit
+        run: pnpm audit

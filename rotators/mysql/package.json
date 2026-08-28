@@ -15,7 +15,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "@dopplerhq/agent-core": "*",
+    "@dopplerhq/agent-core": "workspace:*",
     "mysql2": "^3.12.0",
     "zod": "^3.17.3"
   },

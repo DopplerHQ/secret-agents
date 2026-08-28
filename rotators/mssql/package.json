@@ -15,7 +15,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "@dopplerhq/agent-core": "*",
+    "@dopplerhq/agent-core": "workspace:*",
     "mssql": "^11.0.1",
     "pg-format": "^1.0.4",
     "zod": "^3.17.3"

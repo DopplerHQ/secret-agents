@@ -24,6 +24,6 @@
     "pg": "^8.7.3",
     "pg-format": "^1.0.4",
     "zod": "^3.16.0",
-    "@dopplerhq/agent-core": "*"
+    "@dopplerhq/agent-core": "workspace:*"
   }
 }
