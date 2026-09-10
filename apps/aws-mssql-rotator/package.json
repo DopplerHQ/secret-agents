@@ -18,9 +18,9 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "@dopplerhq/agent-core": "*",
-    "@dopplerhq/mssql-rotator": "*",
-    "@dopplerhq/aws-utils": "*"
+    "@dopplerhq/agent-core": "workspace:*",
+    "@dopplerhq/mssql-rotator": "workspace:*",
+    "@dopplerhq/aws-utils": "workspace:*"
   },
   "secretAgentMeta": {
     "platform": "aws"
